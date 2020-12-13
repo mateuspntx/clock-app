@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open --no-source-maps --no-cache",
-    "build": "parcel build index.html --no-source-maps --no-cache"
+    "start": "parcel src/index.html --open --no-source-maps --no-cache",
+    "build": "parcel build src/index.html --no-source-maps --no-cache"
   },
   "dependencies": {},
   "devDependencies": {
