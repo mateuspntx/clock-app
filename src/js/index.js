@@ -67,11 +67,38 @@ const ClockApp = {
     return quotes;
   },
 
+  GetLocalQuote: async () => {
+    const _this = ClockApp;
+
+    let getText, getAuthor;
+    const todayDate = new Date().getDate();
+
+    if (
+      !localStorage.getItem('day') ||
+      localStorage.getItem('day') != todayDate
+    ) {
+      const quote = await _this.GetQuoteAPI();
+
+      localStorage.setItem('day', todayDate);
+      localStorage.setItem('quote', JSON.stringify(quote));
+
+      getText = quote.text;
+      getAuthor = quote.author;
+    } else {
+      const { text, author } = JSON.parse(localStorage.getItem('quote'));
+
+      getText = text;
+      getAuthor = author;
+    }
+
+    return { text: getText, author: getAuthor };
+  },
+
   RenderQuote: async () => {
     const _this = ClockApp;
 
-    const { text, author } = await _this.GetQuoteAPI();
     const { textEl, authorEl } = _this.quoteElements;
+    const { text, author } = await _this.GetLocalQuote();
 
     textEl.innerText = `"${text}"`;
     authorEl.innerText = `- ${author || 'Unknown'}`;
