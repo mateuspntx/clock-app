@@ -11,7 +11,7 @@ const ClockApp = {
   Init: () => {
     const _this = ClockApp;
 
-    _this.SetBackground();
+    _this.SetBackground('christmas');
     _this.RenderQuote();
     _this.RenderClock();
     _this.GetUserPosition();
@@ -21,9 +21,9 @@ const ClockApp = {
     }, 4000);
   },
 
-  SetBackground: () => {
-    const unsplashImage =
-      'https://source.unsplash.com/1920x1080/daily?mountains';
+  SetBackground: (keyword = 'mountains', daily = true) => {
+    const isDaily = daily ? 'daily' : '';
+    const unsplashImage = `https://source.unsplash.com/1920x1080/${isDaily}?${keyword}`;
 
     document.body.style.background = `url(${unsplashImage})`;
     document.body.style.backgroundPosition = 'center';
