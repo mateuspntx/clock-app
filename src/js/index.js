@@ -15,6 +15,10 @@ const ClockApp = {
     _this.RenderQuote();
     _this.RenderClock();
     _this.GetUserPosition();
+
+    setTimeout(() => {
+      document.getElementById('foreground').style.display = 'none';
+    }, 4000);
   },
 
   SetBackground: () => {

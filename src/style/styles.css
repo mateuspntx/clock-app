@@ -6,7 +6,14 @@ body {
   padding: 0;
   background-color: #000;
   color: #ffffff;
-  /*animation: 5s ease 0s 1 FadeIn;*/
+}
+
+#foreground {
+  position: absolute;
+  background: rgba(0, 0, 0, 0);
+  width: 100vw;
+  height: 100vh;
+  animation: 4s ease 0s 1 FadeOut;
 }
 
 .container {
@@ -79,11 +86,11 @@ body {
   text-transform: uppercase;
 }
 
-@keyframes FadeIn {
+@keyframes FadeOut {
   0% {
-    opacity: 0;
+    background: rgba(0, 0, 0);
   }
   100% {
-    opacity: 1;
+    background: rgba(0, 0, 0, 0);
   }
 }
