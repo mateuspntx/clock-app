@@ -53,17 +53,14 @@ const ClockApp = {
   RenderClock: () => {
     const _this = ClockApp;
 
-    const { hour, minutes } = _this.GetCurrentTime();
-
-    _this.timeGreetingEl.innerText = _this.GetGreetingMessage(hour);
-    _this.timeElement.innerText = `${hour}:${minutes}`;
-
     const clockInterval = () => {
       const { hour, minutes } = _this.GetCurrentTime();
 
       _this.timeGreetingEl.innerText = _this.GetGreetingMessage(hour);
       _this.timeElement.innerText = `${hour}:${minutes}`;
     };
+
+    clockInterval();
 
     setInterval(clockInterval, 1000);
   },
