@@ -36,26 +36,32 @@ const ClockApp = {
     return { hour, minutes, seconds };
   },
 
+  GetGreetingMessage: (hour) => {
+    let greetingMessage = '';
+
+    if (hour < 12) {
+      greetingMessage = 'Good Morning';
+    } else if (hour < 18) {
+      greetingMessage = 'Good Afternoon';
+    } else {
+      greetingMessage = 'Good Evening';
+    }
+
+    return greetingMessage;
+  },
+
   RenderClock: () => {
     const _this = ClockApp;
 
     const { hour, minutes } = _this.GetCurrentTime();
+
+    _this.timeGreetingEl.innerText = _this.GetGreetingMessage(hour);
     _this.timeElement.innerText = `${hour}:${minutes}`;
 
     const clockInterval = () => {
       const { hour, minutes } = _this.GetCurrentTime();
 
-      let greetingMessage = '';
-
-      if (hour < 12) {
-        greetingMessage = 'Good Morning';
-      } else if (hour < 18) {
-        greetingMessage = 'Good Afternoon';
-      } else {
-        greetingMessage = 'Good Evening';
-      }
-
-      _this.timeGreetingEl.innerText = greetingMessage;
+      _this.timeGreetingEl.innerText = _this.GetGreetingMessage(hour);
       _this.timeElement.innerText = `${hour}:${minutes}`;
     };
 
