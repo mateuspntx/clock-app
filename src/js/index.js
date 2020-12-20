@@ -30,14 +30,20 @@ const ClockApp = {
     document.body.style.backgroundSize = 'cover';
   },
 
+  GetCurrentTime: () => {
+    const [hour, minutes, seconds] = new Date().toLocaleTimeString().split(':');
+
+    return { hour, minutes, seconds };
+  },
+
   RenderClock: () => {
     const _this = ClockApp;
 
-    const [hour, minutes] = new Date().toLocaleTimeString().split(':');
+    const { hour, minutes } = _this.GetCurrentTime();
     _this.timeElement.innerText = `${hour}:${minutes}`;
 
     const clockInterval = () => {
-      const [hour, minutes] = new Date().toLocaleTimeString().split(':');
+      const { hour, minutes } = _this.GetCurrentTime();
 
       let greetingMessage = '';
 
