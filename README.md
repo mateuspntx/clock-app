@@ -2,6 +2,10 @@
 
 The idea of this project I had when was in Windows lock screen about to enter my account, so I decided to create something like that.
 
+The app gets daily background image and quotes.
+
+Demo - https://clock-app.bridges.vercel.app/
+
 <img src="https://i.imgur.com/zUYtqA5.png">
 
 #### What APIs I used:
